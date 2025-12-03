@@ -1,0 +1,24 @@
+{
+  "home": {
+    "title": "Welcome to Home",
+    "description": "Your shopping content goes here"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search products"
+  },
+  "tabs": {
+    "home": "Home",
+    "cart": "Cart",
+    "search": "Search",
+    "products": "Products",
+    "wishlist": "Wishlist"
+  },
+  "header": {
+    "title": "GodWin"
+  }
+}
