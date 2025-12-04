@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { DrawerNavigator } from "./DrawerNavigator";
 import { AuthNavigator } from "./AuthNavigator";
 import { useAuthStore } from "../store/useAuthStore";
+import { MainTabs } from "./MainTabs";
 
 export function AppNavigator() {
   const user = useAuthStore((state) => state.user);
@@ -9,7 +9,7 @@ export function AppNavigator() {
   
   return (
     <NavigationContainer>
-      {user ? <DrawerNavigator /> : <AuthNavigator />}
+      {user ? <MainTabs /> : <AuthNavigator />}
     </NavigationContainer>
   );
 }

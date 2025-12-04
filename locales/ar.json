@@ -16,9 +16,11 @@
     "cart": "السلة",
     "search": "بحث",
     "products": "المنتجات",
-    "wishlist":"المفضلة"
+    "wishlist":"المفضلة",
+    "settings":"الإعدادات"
   },
   "header": {
-    "title": "جودوين"
+    "title": "جودوين",
+    "hello":"مرحبا"
   }
 }

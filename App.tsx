@@ -1,4 +1,3 @@
-
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import "@/global.css";
 import { ReactQueryProvider } from "./providers/ReactQueryProvider";
@@ -10,7 +9,7 @@ import { StatusBar } from "react-native";
 export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <StatusBar hidden={true} />
+      <StatusBar hidden={true} translucent={false} />
       <SafeAreaProvider>
         <GluestackUIProvider mode="light">
           <ReactQueryProvider>
@@ -21,4 +20,3 @@ export default function App() {
     </GestureHandlerRootView>
   );
 }
-

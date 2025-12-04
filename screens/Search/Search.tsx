@@ -1,12 +1,27 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, ScrollView } from "react-native";
+import React from "react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Search = () => {
+  const { t, isRTL } = useTranslation();
   return (
-    <View>
-      <Text>Search</Text>
-    </View>
-  )
-}
+    <ScrollView className="flex-1 bg-background dark:bg-background-dark">
+      <View className="flex-1 justify-center items-center py-8 px-4">
+        <Text
+          className="text-2xl font-bold w-full text-secondary-500 dark:text-secondary-100"
+          style={{ textAlign: isRTL ? "right" : "left" }}
+        >
+          {t("home.title")}
+        </Text>
+        <Text
+          className="text-gray-600 dark:text-gray-400  text-center"
+          style={{ textAlign: isRTL ? "right" : "center" }}
+        >
+          {t("home.description")}
+        </Text>
+      </View>
+    </ScrollView>
+  );
+};
 
-export default Search
+export default Search;

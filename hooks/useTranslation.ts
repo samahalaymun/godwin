@@ -2,14 +2,15 @@ import { useCallback } from "react";
 import { I18nManager } from "react-native";
 import ar from "@/locales/ar.json";
 import en from "@/locales/en.json";
+import { useLanguageStore } from "@/store/useLanguageStore";
 
 const translations = { ar, en };
 
-// Force Arabic as default language
 I18nManager.forceRTL(true);
 
 export const useTranslation = () => {
-  const locale = "ar"; // Always use Arabic
+  const locale = useLanguageStore((state) => state.locale);
+  const isRTL = locale === "ar";
 
   const t = useCallback(
     (key: string): string => {
@@ -29,5 +30,5 @@ export const useTranslation = () => {
     [locale]
   );
 
-  return { t, locale, isRTL: true };
+  return { t, locale, isRTL };
 };

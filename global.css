@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	/* primary #35b6fa -> rgb(53,182,250) */
+	--color-primary-500: 53 182 250;
+
+	/* background #F3F4F6 -> rgb(243,244,246) */
+	--color-background-100: 243 244 246;
+}
+
+/* Default background for web (React Native Web) */
+html, body, #root {
+	background-color: #F3F4F6;
+}
+
