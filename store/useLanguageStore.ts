@@ -1,15 +1,9 @@
 import { create } from "zustand";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
-type LangState = {
-  locale: "ar" | "en";
-  setLocale: (lang: "ar" | "en") => void;
-  loadLocale: () => Promise<void>;
-};
+import { LangState } from "@/types";
 
 export const useLanguageStore = create<LangState>((set) => ({
-  locale: "ar", // default
-
+  locale: "ar",
   setLocale: async (lang) => {
     await AsyncStorage.setItem("app_lang", lang);
     set({ locale: lang });

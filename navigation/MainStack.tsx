@@ -1,9 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { MainTabs } from "./MainTabs";
-import Cart from "@/screens/Cart/Cart";
-import Products from "@/screens/Products/Products";
-import WishList from "@/screens/WishList/WishList";
-import Orders from "@/screens/Orders/Orders";
+import Search from "@/screens/Search/Search";
+import Category from "@/screens/Category/Category";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,15 +14,10 @@ export function MainStack() {
         component={MainTabs}
         options={{ headerShown: false }}
       />
-
-      {/* شاشات خارج التاب */}
-      <Stack.Screen
-        name="Cart"
-        component={Cart}
-      />
-      <Stack.Screen name="Products" component={Products} />
-      <Stack.Screen name="Wishlist" component={WishList} />
-      <Stack.Screen name="Orders" component={Orders} />
+      {/*Screens outside the MAinTabs */}
+      <Stack.Screen name="Search" component={Search} />
+      <Stack.Screen name="Category" component={Category} />
+  
     </Stack.Navigator>
   );
 }

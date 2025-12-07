@@ -1,14 +1,7 @@
 import Cart from "@/screens/Cart/Cart";
 import Home from "@/screens/Home/Home";
 import Header from "@/components/Header/Header";
-import {
-  createBottomTabNavigator,
-  BottomTabNavigationProp,
-} from "@react-navigation/bottom-tabs";
-import { useNavigation } from "@react-navigation/native";
-import { CompositeNavigationProp } from "@react-navigation/native";
-import { DrawerNavigationProp } from "@react-navigation/drawer";
-import Search from "@/screens/Search/Search";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useTranslation } from "@/hooks/useTranslation";
 import colors from "@/config/colors";
@@ -16,28 +9,19 @@ import Products from "@/screens/Products/Products";
 import WishList from "@/screens/WishList/WishList";
 import Setting from "@/screens/Settings/Settings";
 import HomeHeader from "@/components/Header/HomeHeader";
-type RootTabParamList = {
-  Home: undefined;
-  Search: undefined;
-  Products: undefined;
-  Wishlist: undefined;
-  Cart: undefined;
-  Settings: undefined;
-};
-
-type MainTabsNavigationProp = CompositeNavigationProp<
-  BottomTabNavigationProp<RootTabParamList>,
-  DrawerNavigationProp<any>
->;
+import { RootTabParamList } from "@/types";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import TabIcon from "@/components/Tabs/TabIcon";
+import { useWindowDimensions } from "react-native";
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
 export function MainTabs() {
-  const navigation = useNavigation<MainTabsNavigationProp>();
+  const insets = useSafeAreaInsets();
   const { t, isRTL } = useTranslation();
-
   const primaryColor = (colors && colors.primary) || "#35b6fa";
-  const secondaryColor = (colors && colors.secondary) || "#6B7280";
+  const secondaryColor = (colors && colors.secondary) || "#2c2423";
+  const { height, width } = useWindowDimensions();
 
   return (
     <>
@@ -48,16 +32,16 @@ export function MainTabs() {
           tabBarActiveTintColor: primaryColor,
           tabBarInactiveTintColor: secondaryColor,
           tabBarStyle: {
-            // paddingTop: 4,
-            paddingBottom: 6,
+            borderTopWidth: 1,
+            paddingTop: 6,
+            paddingBottom: insets.bottom > 0 ? insets.bottom : 10,
+            display: "flex",
+            flexDirection: isRTL ? "row-reverse" : "row",
+            // height:60
           },
           tabBarLabelStyle: {
             fontSize: 12,
-            marginTop: 0,
-          },
-          tabBarItemStyle: {
-            paddingVertical: 2,
-            paddingBottom: 4,
+            fontWeight: "600",
           },
         }}
       >
@@ -71,8 +55,10 @@ export function MainTabs() {
           )}
           options={{
             tabBarLabel: t("tabs.home"),
-            tabBarIcon: ({ color }) => (
-              <MaterialIcons name="home" size={26} color={color} />
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon focused={focused}>
+                <MaterialIcons name="home" size={26} color={color} />
+              </TabIcon>
             ),
           }}
         />
@@ -80,14 +66,16 @@ export function MainTabs() {
           name="Products"
           children={() => (
             <>
-              <Header title={t("tabs.products")} />
+              <Header title={t("tabs.products")} serachButton />
               <Products />
             </>
           )}
           options={{
             tabBarLabel: t("tabs.products"),
-            tabBarIcon: ({ color }) => (
-              <MaterialIcons name="store" size={26} color={color} />
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon focused={focused}>
+                <MaterialIcons name="store" size={26} color={color} />
+              </TabIcon>
             ),
           }}
         />
@@ -95,14 +83,16 @@ export function MainTabs() {
           name="Cart"
           children={() => (
             <>
-              <Header title={t("tabs.cart")} />
+              <Header title={t("tabs.cart")} serachButton={false} />
               <Cart />
             </>
           )}
           options={{
             tabBarLabel: t("tabs.cart"),
-            tabBarIcon: ({ color }) => (
-              <MaterialIcons name="shopping-cart" size={26} color={color} />
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon focused={focused}>
+                <MaterialIcons name="shopping-cart" size={26} color={color} />
+              </TabIcon>
             ),
           }}
         />
@@ -110,14 +100,16 @@ export function MainTabs() {
           name="Wishlist"
           children={() => (
             <>
-              <Header title={t("tabs.wishlist")} />
+              <Header title={t("tabs.wishlist")} serachButton={false} />
               <WishList />
             </>
           )}
           options={{
             tabBarLabel: t("tabs.wishlist"),
-            tabBarIcon: ({ color }) => (
-              <MaterialIcons name="favorite" size={26} color={color} />
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon focused={focused}>
+                <MaterialIcons name="favorite" size={26} color={color} />
+              </TabIcon>
             ),
           }}
         />
@@ -125,14 +117,16 @@ export function MainTabs() {
           name="Settings"
           children={() => (
             <>
-              <Header title={t("tabs.settings")} />
+              <Header title={t("tabs.settings")} serachButton={false} />
               <Setting />
             </>
           )}
           options={{
             tabBarLabel: t("tabs.settings"),
-            tabBarIcon: ({ color }) => (
-              <MaterialIcons name="settings" size={26} color={color} />
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon focused={focused}>
+                <MaterialIcons name="settings" size={26} color={color} />
+              </TabIcon>
             ),
           }}
         />

@@ -1,26 +1,65 @@
 {
   "home": {
     "title": "مرحبا بك في الرئيسية",
-    "description": "محتوى التسوق يأتي هنا"
+    "description": "محتوى التسوق يأتي هنا",
+    "shopByCategory": "تسوقي حسب الفئة",
+    "shopNow": "تسوق الان"
   },
   "cart": {
     "title": "سلتك",
     "empty": "سلتك فارغة"
   },
   "search": {
-    "title": "بحث",
-    "placeholder": "ابحث عن المنتجات"
+    "title": "تبحث عن منتجاتك المفضلة؟",
+    "placeholder": "ابدأ الكتابة لترى النتائج",
+    "inputPlaceHolder": "ابحث عن منتج"
+  },
+  "category": {
+    "makeup": "ميك اب",
+    "skinCare": "العناية بالبشرة",
+    "perfume": "العطور",
+    "hairCare": "العناية بالشعر",
+    "bodyCare": "العناية بالجسم",
+    "accessories": "الاكسسوارات"
+  },
+  "auth": {
+    "login": {
+      "title": " مرحبًا بك في ايشوب",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "loginButton": "تسجيل الدخول",
+      "noAccount": "ليس لديك حساب؟",
+      "signUp": "إنشاء حساب"
+    },
+    "signup": {
+      "title": "إنشاء حساب جديد",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "confirmPasswordPlaceholder": "تأكيد كلمة المرور",
+      "signupButton": "إنشاء حساب",
+      "haveAccount": "هل لديك حساب بالفعل؟",
+      "login": "تسجيل الدخول",
+      "firstNamePlaceholder": "الاسم الأول",
+      "lastNamePlaceholder": "اسم العائلة",
+      "phoneNumberPlaceholder": "رقم الهاتف"
+    },
+    "errorMessages": {
+      "invalidEmail": "يرجى إدخال عنوان بريد إلكتروني صالح.",
+      "passwordTooShort": "يجب أن تكون كلمة المرور 6 أحرف على الأقل.",
+      "passwordsDoNotMatch": "كلمات المرور غير متطابقة.",
+      "requiredField": "هذا الحقل مطلوب."
+    }
   },
   "tabs": {
     "home": "الرئيسية",
     "cart": "السلة",
     "search": "بحث",
     "products": "المنتجات",
-    "wishlist":"المفضلة",
-    "settings":"الإعدادات"
+    "wishlist": "المفضلة",
+    "settings": "الإعدادات"
   },
   "header": {
     "title": "جودوين",
-    "hello":"مرحبا"
+    "hello": "مرحبا"
   }
 }

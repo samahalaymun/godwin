@@ -1,13 +1,10 @@
+import { AuthStore } from "@/types";
 import { create } from "zustand";
 
-interface AuthStore {
-  user: null | { id: string; name: string };
-  login: (user: any) => void;
-  logout: () => void;
-}
+
 
 export const useAuthStore = create<AuthStore>((set) => ({
-  user: {id: "1", name: "هيا"},
+  user:{name:"John Doe", email:"", id:1},
   login: (user) => set({ user }),
   logout: () => set({ user: null }),
 }));

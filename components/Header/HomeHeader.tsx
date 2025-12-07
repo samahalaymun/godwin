@@ -16,7 +16,7 @@ const HomeHeader = () => {
           flexDirection: isRTL ? "row" : "row-reverse",
         }}
       >
-        <Text className="text-2xl text-secondary-700 font-semibold">
+        <Text className="text-2xl text-secondary-600 font-semibold">
           {t("header.hello")} {user?.name}
         </Text>
       </View>

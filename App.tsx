@@ -1,5 +1,5 @@
-import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import "@/global.css";
+import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { ReactQueryProvider } from "./providers/ReactQueryProvider";
 import { AppNavigator } from "./navigation/AppNavigator";
 import { GestureHandlerRootView } from "react-native-gesture-handler";

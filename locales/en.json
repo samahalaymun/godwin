@@ -1,15 +1,56 @@
 {
   "home": {
     "title": "Welcome to Home",
-    "description": "Your shopping content goes here"
+    "description": "Your shopping content goes here",
+    "shopByCategory":"Shop by category",
+    "shopNow":"Shop Now"
   },
   "cart": {
     "title": "Your Cart",
     "empty": "Your cart is empty"
   },
   "search": {
-    "title": "Search",
-    "placeholder": "Search products"
+    "title": "Looking for favourites products?",
+    "placeholder": "Start typing to see the results",
+    "inputPlaceHolder":"Looking for product"
+  },
+  "category":{
+    "makeup":"Makeup",
+    "skinCare":"Skin Care",
+    "perfume":"Perfume",
+    "hairCare":"Hair Care",
+    "bodyCare":"Body Care",
+    "accessories":"Accessories"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome to eShop",
+      "emailPlaceholder": "Email",
+      "passwordPlaceholder": "Password",
+      "loginButton": "Login",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign Up",
+      "password": " Password ",
+      "email": " Email "
+    },
+    "signup": {
+      "title": "Create a new account",
+      "emailPlaceholder": "Email",
+      "passwordPlaceholder": "password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "signupButton": "Sign Up",
+      "haveAccount": "Already have an account?",
+      "login": "Login",
+      "firstNamePlaceholder": "First name",
+      "lastNamePlaceholder": "Last name",
+      "phoneNumberPlaceholder": "Phone number"
+    },
+    "errorMessages": {
+      "invalidEmail": "Please enter a valid email address.",
+      "passwordTooShort": "Password must be at least 6 characters long.",
+      "passwordsDoNotMatch": "Passwords do not match.",
+      "requiredField": "This field is required."
+    }
   },
   "tabs": {
     "home": "Home",
@@ -22,5 +63,11 @@
   "header": {
     "title": "GodWin",
     "hello": " Hello "
+  },
+  "error": {
+    "network": "Network error. Please try again later.",
+    "unauthorized": "You are not authorized to perform this action.",
+    "notFound": "The requested resource was not found.",
+    "server": "Server error. Please contact support."
   }
 }
