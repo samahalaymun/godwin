@@ -3,7 +3,8 @@
     "title": "Welcome to Home",
     "description": "Your shopping content goes here",
     "shopByCategory":"Shop by category",
-    "shopNow":"Shop Now"
+    "shopNow":"Shop Now",
+    "viewAll":"View All"
   },
   "cart": {
     "title": "Your Cart",
@@ -20,7 +21,8 @@
     "perfume":"Perfume",
     "hairCare":"Hair Care",
     "bodyCare":"Body Care",
-    "accessories":"Accessories"
+    "accessories":"Accessories",
+    "womensBags":"Women Bags"
   },
   "auth": {
     "login": {

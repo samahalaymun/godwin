@@ -31,4 +31,9 @@ export const categories: Category[] = [
     name: "accessories",
     icon: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
+  {
+    id: "8",
+    name: "womensBags",
+    icon: "https://images.unsplash.com/photo-1760624294469-550753ec203a?q=80&w=581&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
 ];

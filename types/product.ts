@@ -1,7 +1,16 @@
-export interface Product {
-  id: number;
+export interface ProductCardProps {
+  id: string;
   name: string;
   price: number;
   image: string;
-  categoryId: number;
+  onPress: (id: string) => void;
 }
+
+export interface Product {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+}
+
+

@@ -5,9 +5,11 @@ export type HomeBannerProps = {
   onPress?: () => void;
 };
 
-export type HomeCategoryItemProps = {
+export type CategoryCardProps = {
   onPress: (item: Category) => void;
   item: Category;
+  width:number;
+  height:number;
 };
 export type Category = {
   id: string;

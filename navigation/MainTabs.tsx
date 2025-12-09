@@ -12,7 +12,7 @@ import HomeHeader from "@/components/Header/HomeHeader";
 import { RootTabParamList } from "@/types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import TabIcon from "@/components/Tabs/TabIcon";
-import { TouchableOpacity, useWindowDimensions } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { useRequireAuth } from "@/hooks/useProtected";
 import { useUnifiedNavigation } from "@/hooks/useNavigation";
 
@@ -31,8 +31,8 @@ export function MainTabs() {
     (tabName: keyof RootTabParamList) => (props: any) => {
       const handlePress = () => {
         const allowed = requireAuth({ redirectTo: tabName });
-        if (!allowed) return; // لو مش مسجل دخول، سيتم redirect داخل requireAuth
-        props.onPress?.(); // لو مسجل دخول، استمر في التنقل للتاب
+        if (!allowed) return;
+        props.onPress?.();
       };
 
       return <TouchableOpacity {...props} onPress={handlePress} />;

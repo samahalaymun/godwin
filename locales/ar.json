@@ -3,7 +3,8 @@
     "title": "مرحبا بك في الرئيسية",
     "description": "محتوى التسوق يأتي هنا",
     "shopByCategory": "تسوقي حسب الفئة",
-    "shopNow": "تسوق الان"
+    "shopNow": "تسوق الان",
+    "viewAll": "عرض الكل"
   },
   "cart": {
     "title": "سلتك",
@@ -20,7 +21,8 @@
     "perfume": "العطور",
     "hairCare": "العناية بالشعر",
     "bodyCare": "العناية بالجسم",
-    "accessories": "الاكسسوارات"
+    "accessories": "الاكسسوارات",
+    "womensBags": "حقائب نسائية"
   },
   "auth": {
     "login": {

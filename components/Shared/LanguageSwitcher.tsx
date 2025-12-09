@@ -1,11 +1,9 @@
 import React from "react";
 import { TouchableOpacity, Text, View } from "react-native";
 import { useLanguageStore } from "@/store/useLanguageStore";
-import { useTranslation } from "@/hooks/useTranslation";
 
 const LanguageSwitcher: React.FC = () => {
   const { locale, setLocale } = useLanguageStore();
-  const { t } = useTranslation();
 
   const toggleLanguage = async () => {
     const newLang = locale === "en" ? "ar" : "en";

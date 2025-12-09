@@ -1,10 +1,17 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { MainStack } from "./MainStack";
+import { useEffect } from "react";
+import { useLanguageStore } from "@/store/useLanguageStore";
 
-const Stack = createNativeStackNavigator();
 
 export function AppNavigator() {
+ const { initLanguage, isInitialized } = useLanguageStore();
+
+ useEffect(() => {
+   initLanguage();
+ }, []);
+
+ if (!isInitialized) return null;
   return (
     <NavigationContainer>
        <MainStack /> 

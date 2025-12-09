@@ -1,16 +1,17 @@
 import { create } from "zustand";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { setAppLanguage, getStoredLanguage } from "@/utils/language";
 import { LangState } from "@/types";
 
 export const useLanguageStore = create<LangState>((set) => ({
-  locale: "ar",
-  setLocale: async (lang) => {
-    await AsyncStorage.setItem("app_lang", lang);
+  locale: "en",
+  isInitialized: false,
+  setLocale: (lang) => {
     set({ locale: lang });
+    setAppLanguage(lang); // هنا السحر (يتعامل مع RTL + restart)
   },
-
-  loadLocale: async () => {
-    const saved = await AsyncStorage.getItem("app_lang");
-    if (saved) set({ locale: saved as "ar" | "en" });
+  initLanguage: async () => {
+    const lang = await getStoredLanguage();
+    const safeLang = lang === "ar" || lang === "en" ? lang : "en";
+    set({ locale: safeLang, isInitialized: true });
   },
 }));

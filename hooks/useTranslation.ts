@@ -11,8 +11,7 @@ I18nManager.forceRTL(true);
 export const useTranslation = () => {
   const locale = useLanguageStore((state) => state.locale);
   const isRTL = locale === "ar";
-  I18nManager.forceRTL(isRTL);
-
+  
   const t = useCallback(
     (key: string): string => {
       const keys = key.split(".");

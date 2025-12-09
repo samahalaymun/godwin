@@ -9,7 +9,7 @@ import { useUnifiedNavigation } from "@/hooks/useNavigation";
 const CategoryHeader = ({ title }: { title: string }) => {
   const { t, isRTL } = useTranslation();
   const navigation = useUnifiedNavigation();
-  const textColor = (colors && colors.text) || "#2c2423";
+  const iconColor = (colors && colors.text) || "#2c2423";
 
   return (
     <SafeAreaView edges={["top"]} className="px-4">
@@ -31,7 +31,7 @@ const CategoryHeader = ({ title }: { title: string }) => {
             <MaterialIcons
               name={isRTL ? "arrow-back-ios" : "arrow-forward-ios"}
               size={20}
-              color={textColor}
+              color={iconColor}
             />
           </TouchableOpacity>
         </View>

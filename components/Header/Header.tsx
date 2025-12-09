@@ -7,7 +7,7 @@ import { HeaderProps } from "@/types";
 import { useUnifiedNavigation } from "@/hooks/useNavigation";
 
 const Header: React.FC<HeaderProps> = ({ title, serachButton = false }) => {
-  const { t, isRTL } = useTranslation();
+  const { isRTL } = useTranslation();
   const navigation = useUnifiedNavigation();
   return (
     <SafeAreaView edges={["top"]} className="px-4">

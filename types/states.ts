@@ -2,8 +2,9 @@ import { User } from "./user";
 
 export type LangState = {
   locale: "ar" | "en";
+  isInitialized: boolean;
   setLocale: (lang: "ar" | "en") => void;
-  loadLocale: () => Promise<void>;
+  initLanguage: () => Promise<void>;
 };
 
 export type AuthStore= {
