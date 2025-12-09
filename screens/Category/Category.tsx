@@ -10,13 +10,13 @@ type Props = NativeStackScreenProps<MainStackParamList, "Category">;
 
 const Category = ({ navigation }: Props) => {
   const route = useRoute<Props["route"]>();
-  const { id, name } = route.params;
-  const { t, isRTL } = useTranslation();
-
+  const {  name } = route.params;
+  const { t } = useTranslation();
+  
   return (
     <View>
       {/* Header */}
-      <CategoryHeader title={name} />
+      <CategoryHeader title={t(`category.${name}`)} />
       <ScrollView className="px-4 pt-6 bg-background flex-1"></ScrollView>
     </View>
   );

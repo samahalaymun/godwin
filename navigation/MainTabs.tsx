@@ -12,7 +12,9 @@ import HomeHeader from "@/components/Header/HomeHeader";
 import { RootTabParamList } from "@/types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import TabIcon from "@/components/Tabs/TabIcon";
-import { useWindowDimensions } from "react-native";
+import { TouchableOpacity, useWindowDimensions } from "react-native";
+import { useRequireAuth } from "@/hooks/useProtected";
+import { useUnifiedNavigation } from "@/hooks/useNavigation";
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
@@ -21,7 +23,20 @@ export function MainTabs() {
   const { t, isRTL } = useTranslation();
   const primaryColor = (colors && colors.primary) || "#35b6fa";
   const secondaryColor = (colors && colors.secondary) || "#2c2423";
-  const { height, width } = useWindowDimensions();
+  const requireAuth = useRequireAuth();
+  const navigation = useUnifiedNavigation();
+  const protectedTabs: (keyof RootTabParamList)[] = ["Wishlist"];
+
+  const protectedTabBarButton =
+    (tabName: keyof RootTabParamList) => (props: any) => {
+      const handlePress = () => {
+        const allowed = requireAuth({ redirectTo: tabName });
+        if (!allowed) return; // لو مش مسجل دخول، سيتم redirect داخل requireAuth
+        props.onPress?.(); // لو مسجل دخول، استمر في التنقل للتاب
+      };
+
+      return <TouchableOpacity {...props} onPress={handlePress} />;
+    };
 
   return (
     <>
@@ -111,6 +126,7 @@ export function MainTabs() {
                 <MaterialIcons name="favorite" size={26} color={color} />
               </TabIcon>
             ),
+            tabBarButton: protectedTabBarButton("Wishlist"),
           }}
         />
         <Tab.Screen

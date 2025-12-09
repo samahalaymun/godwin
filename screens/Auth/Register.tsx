@@ -2,18 +2,16 @@ import { DynamicTextFields } from "@/components/Forms/DynamicTextFields";
 import AppLogo from "@/components/Shared/AppLogo";
 import { Button, ButtonText } from "@/components/ui/button";
 import { VStack } from "@/components/ui/vstack";
+import { useUnifiedNavigation } from "@/hooks/useNavigation";
 import { useTranslation } from "@/hooks/useTranslation";
-import { AuthStackParamList, SighnUpFormData } from "@/types";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import {SighnUpFormData } from "@/types";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { View, Text, StyleSheet } from "react-native";
 
 const Register: React.FC = () => {
   const { t, isRTL } = useTranslation();
-  const navigation =
-    useNavigation<NativeStackNavigationProp<AuthStackParamList>>();
+  const navigation = useUnifiedNavigation();
   const {
     control,
     handleSubmit,

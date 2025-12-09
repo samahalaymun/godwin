@@ -1,20 +1,16 @@
 import { View, Text, FlatList } from "react-native";
 import React from "react";
 import { useTranslation } from "@/hooks/useTranslation";
-import { Category, MainStackParamList } from "@/types";
+import { Category } from "@/types";
 import { HomeCategoryItem } from "./HomeCategoryItem";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useNavigation } from "@react-navigation/native";
 import { categories } from "@/constants";
+import {useUnifiedNavigation } from "@/hooks/useNavigation";
 
-type Navigation = NativeStackNavigationProp<MainStackParamList, "Home">;
 
 const ShopByCategory = () => {
   const { t } = useTranslation();
-  const navigation = useNavigation<Navigation>();
-
-
-
+  const navigation = useUnifiedNavigation();
+  
   const goToCategory = (item: Category) => {
     navigation.navigate("Category", { id: item.id, name: item.name });
   };

@@ -3,16 +3,12 @@ import React from "react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { SafeAreaView } from "react-native-safe-area-context";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useNavigation } from "@react-navigation/native";
 import { HeaderProps } from "@/types";
-
-
+import { useUnifiedNavigation } from "@/hooks/useNavigation";
 
 const Header: React.FC<HeaderProps> = ({ title, serachButton = false }) => {
   const { t, isRTL } = useTranslation();
- const navigation =
-    useNavigation<NativeStackNavigationProp<any>>();
+  const navigation = useUnifiedNavigation();
   return (
     <SafeAreaView edges={["top"]} className="px-4">
       <View
@@ -34,7 +30,6 @@ const Header: React.FC<HeaderProps> = ({ title, serachButton = false }) => {
             </TouchableOpacity>
           </View>
         )}
-        
       </View>
     </SafeAreaView>
   );

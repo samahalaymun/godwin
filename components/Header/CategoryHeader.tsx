@@ -1,15 +1,14 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { useTranslation } from "@/hooks/useTranslation";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { SafeAreaView } from "react-native-safe-area-context";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import colors from "@/config/colors";
+import { useUnifiedNavigation } from "@/hooks/useNavigation";
 
 const CategoryHeader = ({ title }: { title: string }) => {
   const { t, isRTL } = useTranslation();
-  const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const navigation = useUnifiedNavigation();
   const textColor = (colors && colors.text) || "#2c2423";
 
   return (

@@ -5,14 +5,14 @@ import {
 } from "react-native";
 import React from "react";
 import { useTranslation } from "@/hooks/useTranslation";
-import { useNavigation } from "@react-navigation/native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { Input, InputField, InputIcon, InputSlot } from "@/components/ui/input";
 import { SearchIcon } from "@/components/ui/icon";
+import { useUnifiedNavigation } from "@/hooks/useNavigation";
 
 const Search = () => {
   const { t, isRTL } = useTranslation();
-  const navigation = useNavigation();
+  const navigation = useUnifiedNavigation();
 
   return (
     <View className="flex-1 bg-background" style={{ marginTop: 15 }}>

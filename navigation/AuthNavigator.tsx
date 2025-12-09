@@ -5,13 +5,17 @@ import { AuthStackParamList } from "@/types";
 
 const Stack = createStackNavigator<AuthStackParamList>();
 
-export function AuthNavigator() {
+export function AuthNavigator({ route }: any) {
   return (
     <Stack.Navigator
       initialRouteName="Login"
       screenOptions={{ headerShown: false }}
     >
-      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        initialParams={route.params}
+      />
       <Stack.Screen name="Register" component={Register} />
     </Stack.Navigator>
   );

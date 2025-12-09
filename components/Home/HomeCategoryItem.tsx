@@ -4,8 +4,6 @@ import { TouchableOpacity, Image, Text, View } from "react-native";
 
 export function HomeCategoryItem({ item, onPress }: HomeCategoryItemProps) {
   const { t } = useTranslation();
-  console.log(t(`category.${item.name}`));
-
   return (
     <TouchableOpacity
       onPress={() => onPress(item)}

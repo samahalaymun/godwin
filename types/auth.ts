@@ -1,3 +1,5 @@
+import { RedirectableRoute } from "./navigation";
+
 export type LoginFormData = {
   email: string;
   password: string;
@@ -10,7 +12,16 @@ export type SighnUpFormData = {
   password: string;
   confirmPassword: string;
 };
-export type AuthStackParamList = {
-  Login: undefined;
-  Register: undefined;
-};
+// export type AuthStackParamList = {
+//   Login:
+//     | { redirectTo?: string; redirectParams?: Record<string, any> }
+//     | undefined;
+//   Register:
+//     | { redirectTo?: string; redirectParams?: Record<string, any> }
+//     | undefined;
+// };
+
+export interface LoginParams {
+  redirectTo?: RedirectableRoute;
+  redirectParams?: any;
+}

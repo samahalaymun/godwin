@@ -9,7 +9,7 @@ const HomeBanner: React.FC<HomeBannerProps> = ({
   imageUrl = "https://via.placeholder.com/400x150", // مثال مؤقت
   onPress,
 }) => {
-    const { t, isRTL } = useTranslation();
+    const { t } = useTranslation();
   
   return (
     <TouchableOpacity

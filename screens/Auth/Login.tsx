@@ -1,26 +1,63 @@
-import { AuthStackParamList, LoginFormData } from "@/types";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { Text, View, Image, StyleSheet } from "react-native";
+import { LoginFormData, LoginParams, RedirectableRoute } from "@/types";
+import { Text, View, StyleSheet } from "react-native";
 import { useForm } from "react-hook-form";
-import { Button, ButtonSpinner, ButtonText } from "@/components/ui/button";
+import { Button, ButtonText } from "@/components/ui/button";
 import { VStack } from "@/components/ui/vstack";
 import { useTranslation } from "@/hooks/useTranslation";
 import { DynamicTextFields } from "@/components/Forms/DynamicTextFields";
 import AppLogo from "@/components/Shared/AppLogo";
+import { useUnifiedNavigation, useUnifiedRoute } from "@/hooks/useNavigation";
+import { useAuthStore } from "@/store/useAuthStore";
 
 export function Login() {
   const { t, isRTL } = useTranslation();
-  const navigation =
-    useNavigation<NativeStackNavigationProp<AuthStackParamList>>();
+  const navigation = useUnifiedNavigation();
+  const login = useAuthStore((s) => s.login);
+  const route = useUnifiedRoute<"Login">();
+  console.log(route);
+  
+  const params: LoginParams = route.params ?? {};
+
   const {
     control,
     handleSubmit,
     formState: { errors },
     getValues,
   } = useForm<LoginFormData>();
+
   const onSubmit = (data: LoginFormData) => {
-    console.log("Login data:", data);
+    onLoginSuccess(data);
+  };
+
+  const onLoginSuccess = (userData: any) => {
+    login(userData);
+    console.log(params.redirectTo);
+
+    if (params.redirectTo) {
+      const tabNames = [
+        "Home",
+        "Products",
+        "Wishlist",
+        "Cart",
+        "Settings",
+      ] as const;
+      if (
+        (tabNames as readonly string[]).includes(params.redirectTo as string)
+      ) {
+        navigation.navigate(
+          "MainTabs" as any,
+          {
+            screen: params.redirectTo,
+            params: params.redirectParams,
+          } as any
+        );
+        return;
+      }
+      navigation.navigate(params.redirectTo as any, params.redirectParams);
+      return;
+    }
+
+    navigation.goBack();
   };
 
   return (
@@ -96,7 +133,6 @@ export function Login() {
         style={styles.newAccountText}
       >
         {t("auth.login.noAccount")}
-        {""}
         <Text
           className=" font-bold text-primary-600 underline"
           onPress={() => navigation.navigate("Register")}
