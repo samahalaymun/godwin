@@ -8,12 +8,15 @@
   },
   "cart": {
     "title": "سلتك",
-    "empty": "سلتك فارغة"
+    "empty": "سلتك فارغة",
+    "addToCart": "أضف الى السلة"
   },
   "search": {
     "title": "تبحث عن منتجاتك المفضلة؟",
     "placeholder": "ابدأ الكتابة لترى النتائج",
-    "inputPlaceHolder": "ابحث عن منتج"
+    "inputPlaceHolder": "ابحث عن منتج",
+    "noResults": "لم يتم العثور على منتجات",
+    "tryDifferent": "حاول البحث باستخدام كلمة مفتاحية مختلفة"
   },
   "category": {
     "makeup": "ميك اب",
@@ -22,10 +25,14 @@
     "hairCare": "العناية بالشعر",
     "bodyCare": "العناية بالجسم",
     "accessories": "الاكسسوارات",
-    "womensBags": "حقائب نسائية"
+    "womensBags": "حقائب نسائية",
+    "Groceries":"البقالة"
   },
   "auth": {
+
     "login": {
+      "popupTitle": "مرحبًا بك!",
+      "popupMessage": "للاستفادة من جميع ميزات التطبيق، يرجى تسجيل الدخول.",
       "title": " مرحبًا بك في ايشوب",
       "emailPlaceholder": "أدخل بريدك الإلكتروني",
       "passwordPlaceholder": "أدخل كلمة المرور",

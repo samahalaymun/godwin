@@ -1,6 +1,5 @@
 // hooks/useNavigation.ts
 import { NavigationProp, useNavigation as rawUseNavigation, useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RouteProp, useRoute } from "@react-navigation/native";
 
 import {

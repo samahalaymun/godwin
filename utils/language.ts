@@ -7,14 +7,10 @@ export async function setAppLanguage(lang: "ar" | "en") {
 
   await AsyncStorage.setItem("APP_LANG", lang);
 
-  if (I18nManager.isRTL !== isRTL) {
-    I18nManager.allowRTL(isRTL);
-    I18nManager.forceRTL(isRTL);
+  //  I18nManager.allowRTL(isRTL);
+  //I18nManager.forceRTL(isRTL);
 
-    if (!__DEV__) {
-      await Updates.reloadAsync();
-    }
-  }
+  await Updates.reloadAsync();
 }
 
 export async function getStoredLanguage() {

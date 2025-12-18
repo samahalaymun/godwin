@@ -10,7 +10,7 @@ interface Props {
   title: string;
   categoryId: string;
   onViewAll: () => void;
-  onProductPress: (id: string) => void;
+  onProductPress: (id: number) => void;
 }
 
 const HomeCategorySection = ({
@@ -22,15 +22,21 @@ const HomeCategorySection = ({
   const { t, isRTL } = useTranslation();
   const iconColor = (colors && colors.text) || "#2c2423";
   const { data, isLoading } = useProducts(categoryId, 6);
- 
-  if (isLoading) return <View><Text>loading...</Text></View>
+  const products = data?.pages.flatMap((page) => page.products) ?? [];
+
+  if (isLoading)
+    return (
+      <View>
+        <Text>loading...</Text>
+      </View>
+    );
   return (
     <View className="px-4 w-full">
       {/* Header */}
       <View
         className="flex-row justify-between items-center mb-3"
         style={{
-          flexDirection: isRTL ? "row" : "row-reverse",
+          flexDirection: isRTL ? "row-reverse" : "row",
         }}
       >
         <Text className="text-xl font-bold text-secondary-900">
@@ -40,7 +46,7 @@ const HomeCategorySection = ({
           onPress={onViewAll}
           className="flex-row items-center"
           style={{
-            flexDirection: isRTL ? "row" : "row-reverse",
+            flexDirection: isRTL ? "row-reverse" : "row",
           }}
         >
           <Text className="text-secondary-900">{t("home.viewAll")}</Text>
@@ -54,10 +60,12 @@ const HomeCategorySection = ({
       {/* products */}
 
       <FlatList
-        data={data?.products}
+        data={products}
         horizontal
         renderItem={({ item }) => (
           <ProductCard
+            width={130}
+            height={140}
             id={item.id}
             name={item.title}
             price={item.price}

@@ -14,7 +14,7 @@ const Header: React.FC<HeaderProps> = ({ title, serachButton = false }) => {
       <View
         className="flex flex-row items-center justify-between py-3 border-b border-b-primary-500"
         style={{
-          flexDirection: isRTL ? "row" : "row-reverse",
+          flexDirection: isRTL ? "row-reverse" : "row",
         }}
       >
         <Text className="text-3xl text-secondary-900 font-semibold font-arabic">

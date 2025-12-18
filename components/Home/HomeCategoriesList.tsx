@@ -9,8 +9,9 @@ import { Category } from "@/types";
 const HomeCategoriesList = () => {
   const { t } = useTranslation();
   const navigation = useUnifiedNavigation();
+ 
   const goToCategory = (item: Category) => {
-    navigation.navigate("Category", { id: item.id, name: item.name });
+    navigation.navigate("Category", { id: item.id, name: item.name,slug:item.slug });
   };
   return (
     <View>

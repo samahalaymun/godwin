@@ -72,7 +72,9 @@ export const DynamicTextFields: React.FC<DynamicTextFieldsProps> = ({
                         ? gap
                         : 0,
                     marginRight:
-                      row.length > 1 && !isRTL&& index < row.length - 1 ? gap : 0,
+                      row.length > 1 && !isRTL && index < row.length - 1
+                        ? gap
+                        : 0,
                   }}
                 >
                   <Input size="xl">
@@ -83,10 +85,12 @@ export const DynamicTextFields: React.FC<DynamicTextFieldsProps> = ({
                       defaultValue={field.value || ""}
                       onChangeText={field.onChange}
                       onBlur={field.onBlur}
-                      style={{
-                        textAlign: isRTL ? "right" : "left",
-                        writingDirection: isRTL ? "rtl" : "ltr",
-                      }}
+                      style={
+                        {
+                          textAlign: isRTL ? "right" : "left",
+                          writingDirection: isRTL ? "rtl" : "ltr",
+                        }
+                      }
                     />
                   </Input>
                   {errors[fieldItem.name] && (

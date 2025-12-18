@@ -5,13 +5,11 @@ import en from "@/locales/en.json";
 import { useLanguageStore } from "@/store/useLanguageStore";
 
 const translations = { ar, en };
-
-I18nManager.forceRTL(true);
+//I18nManager.forceRTL(true);
 
 export const useTranslation = () => {
   const locale = useLanguageStore((state) => state.locale);
   const isRTL = locale === "ar";
-  
   const t = useCallback(
     (key: string): string => {
       const keys = key.split(".");

@@ -1,3 +1,5 @@
+import { NavigatorScreenParams } from "@react-navigation/native";
+
 export type RootTabParamList = {
   Home: undefined;
   Products: undefined;
@@ -7,10 +9,15 @@ export type RootTabParamList = {
 };
 export type MainStackParamList = {
   MainTabs: undefined;
-  Category: { id: string; name: string };
+  Category: { id: string; name: string; slug: string };
   Search: undefined;
-  ProductDetails: { id: string };
-  Auth: { redirectTo?: RedirectableRoute; redirectParams?: any } | undefined;
+  ProductDetails: { id: number };
+  Auth:
+    | (NavigatorScreenParams<AuthStackParamList> & {
+        redirectTo?: RedirectRoute;
+        redirectParams?: unknown;
+      })
+    | undefined;
 };
 
 export type TabItem = {
@@ -37,3 +44,5 @@ export type AllRoutes =
   | keyof RootTabParamList
   | keyof MainStackParamList
   | keyof AuthStackParamList;
+
+export type RedirectRoute = keyof RootTabParamList | keyof MainStackParamList;

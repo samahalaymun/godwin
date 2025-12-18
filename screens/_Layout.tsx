@@ -7,10 +7,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <View
-      className="bg-background"
+      className="bg-background flex-1 px-4"
       style={{
         flex: 1,
-        paddingTop: insets.top,
+        paddingTop: 20,
         paddingBottom:32
       }}
     >

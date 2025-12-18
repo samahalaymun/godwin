@@ -16,7 +16,7 @@ const Settings = () => {
   };
 
   const goToProductDetails = () => {
-    navigation.navigate("ProductDetails", { id: "1" });
+    navigation.navigate("ProductDetails", { id: 1 });
   };
   return (
     <Layout>

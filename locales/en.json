@@ -8,24 +8,30 @@
   },
   "cart": {
     "title": "Your Cart",
-    "empty": "Your cart is empty"
+    "empty": "Your cart is empty",
+    "addToCart":"Add To Cart"
   },
   "search": {
     "title": "Looking for favourites products?",
     "placeholder": "Start typing to see the results",
-    "inputPlaceHolder":"Looking for product"
+    "inputPlaceHolder":"Looking for product",
+    "noResults":"No products found",
+    "tryDifferent":"Try searching with a different keyword"
   },
   "category":{
-    "makeup":"Makeup",
-    "skinCare":"Skin Care",
-    "perfume":"Perfume",
-    "hairCare":"Hair Care",
-    "bodyCare":"Body Care",
-    "accessories":"Accessories",
-    "womensBags":"Women Bags"
+    "makeup": "Makeup",
+    "skinCare": "Skin Care",
+    "perfume": "Perfume",
+    "hairCare": "Hair Care",
+    "bodyCare": "Body Care",
+    "accessories": "Accessories",
+    "womensBags": "Women Bags",
+    "Groceries": "Groceries"
   },
   "auth": {
     "login": {
+      "popupTitle": "Welcome!",
+      "popupMessage": "To enjoy all app features, please log in.",
       "title": "Welcome to eShop",
       "emailPlaceholder": "Email",
       "passwordPlaceholder": "Password",

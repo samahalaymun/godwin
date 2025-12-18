@@ -1,18 +1,41 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-} from "react-native";
-import React from "react";
+import { View, TouchableOpacity } from "react-native";
+import React, { useMemo, useState } from "react";
 import { useTranslation } from "@/hooks/useTranslation";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { Input, InputField, InputIcon, InputSlot } from "@/components/ui/input";
 import { SearchIcon } from "@/components/ui/icon";
 import { useUnifiedNavigation } from "@/hooks/useNavigation";
+import { useDebounce } from "@/hooks/useDebounce";
+import { useSearchProducts } from "@/hooks/useSearchProduct";
+import ProductsPageLoading from "@/components/Loading/ProductsPageLoading";
+import ProductsList from "@/components/Product/ProductsList";
+import SearchProductEmptyState from "@/components/EmptyState/SearchProductEmptyState";
+import SearchProductNoResult from "@/components/EmptyState/SearchProductNoResult";
 
 const Search = () => {
   const { t, isRTL } = useTranslation();
   const navigation = useUnifiedNavigation();
+  const [query, setQuery] = useState("");
+  const debouncedQuery = useDebounce(query, 400);
+  const {
+    data,
+    isLoading,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isRefetching,
+    refetch,
+  } = useSearchProducts(debouncedQuery);
+  const products = useMemo(
+    () => data?.pages.flatMap((page) => page.products) ?? [],
+    [data]
+  );
+  const hasQuery = debouncedQuery.trim().length > 0;
+  const hasProducts = products.length > 0;
+  const showInitialEmpty = !hasQuery;
+  const showLoading = hasQuery && isLoading;
+  const showProducts = hasQuery && !isLoading && hasProducts;
+  const showNoResults = hasQuery && !isLoading && !hasProducts;
 
   return (
     <View className="flex-1 bg-background" style={{ marginTop: 15 }}>
@@ -23,7 +46,7 @@ const Search = () => {
           className="px-4 flex flex-row"
           style={{
             marginBottom: 10,
-            justifyContent:isRTL ? "flex-start" : "flex-end",
+            justifyContent: isRTL ? "flex-end" : "flex-start",
             alignItems: "center",
             paddingHorizontal: 16,
           }}
@@ -57,6 +80,7 @@ const Search = () => {
                 textAlign: isRTL ? "right" : "left",
                 writingDirection: isRTL ? "rtl" : "ltr",
               }}
+              onChangeText={setQuery}
             />
             {!isRTL ? (
               <InputSlot className="">
@@ -66,14 +90,29 @@ const Search = () => {
           </Input>
         </View>
       </View>
-      {/* --- Empty State --- */}
-      <View className="flex-1 justify-center items-center mt-10">
-        <Text className="text-2xl font-bold text-primary-500 mt-4">
-          {t("search.title")}
-        </Text>
-        <Text className="text-lg text-secondary-900/70 mt-2">
-          {t("search.placeholder")}
-        </Text>
+
+      <View className="flex-1">
+        {/* 1️⃣ Initial Empty State */}
+        {showInitialEmpty && <SearchProductEmptyState />}
+
+        {/* 2️⃣ Loading */}
+        {showLoading && <ProductsPageLoading />}
+
+        {/* 3️⃣ Products List */}
+        {showProducts && (
+          <ProductsList
+            key="search-products-list"
+            fetchNextPage={fetchNextPage}
+            hasNextPage={hasNextPage}
+            products={products}
+            isFetchingNextPage={isFetchingNextPage}
+            isRefetching={isRefetching}
+            refetch={refetch}
+          />
+        )}
+
+        {/* 4️⃣ No Results */}
+        {showNoResults && <SearchProductNoResult />}
       </View>
     </View>
   );

@@ -13,9 +13,7 @@ export function Login() {
   const { t, isRTL } = useTranslation();
   const navigation = useUnifiedNavigation();
   const login = useAuthStore((s) => s.login);
-  const route = useUnifiedRoute<"Login">();
-  console.log(route);
-  
+  const route = useUnifiedRoute<"Login">();  
   const params: LoginParams = route.params ?? {};
 
   const {

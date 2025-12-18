@@ -13,7 +13,7 @@ const HomeHeader = () => {
       <View
         className="flex flex-row items-center px-4 py-5"
         style={{
-          flexDirection: isRTL ? "row" : "row-reverse",
+          flexDirection: isRTL ? "row-reverse" : "row",
         }}
       >
         <Text className="text-2xl text-secondary-600 font-semibold">
